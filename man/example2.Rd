@@ -35,12 +35,11 @@ Piepho and Edmondson.
 ## ggplot2 MUST be installed
 
 ## *************************************************************************************
-##                            Preliminaries
+##                         Options and required packages
 ## *************************************************************************************
 
 options(contrasts = c('contr.treatment', 'contr.poly'))
 require(ggplot2)
-data(beet)
 
 ## *************************************************************************************
 ##         Polynomial analysis and graphical plots of factorial treatment effects

@@ -35,11 +35,10 @@ the diagnostic plots for the two models.
 }
 \examples{
 ## *************************************************************************************
-##                            Preliminaries
+##                        Options and required packages
 ## *************************************************************************************
 
 options(contrasts = c('contr.treatment', 'contr.poly'))
-data(turnip)
 
 ## *************************************************************************************
 ##   Quadratic regression models with and without transformation of regressor variables

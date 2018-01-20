@@ -7,7 +7,7 @@
 \alias{agriTutorial-package}
 \title{Tutorial Analysis of Agricultural Experiments}
 \description{
-The \code{agri.tutorial} package provides example software for the analysis of
+The \code{agriTutorial} package provides example software for the analysis of
  five agricultural example data sets in the paper:
  'A tutorial on the statistical analysis of factorial experiments with qualitative
   and quantitative treatment factor levels' by Piepho and Edmondson (in press).

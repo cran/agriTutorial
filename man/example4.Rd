@@ -53,12 +53,11 @@ effects while still allowing raw polynomials to be used for the treatments model
 }
 \examples{
 ## *************************************************************************************
-##                            Preliminaries
+##                          Options and required packages
 ## *************************************************************************************
 
 options(contrasts = c('contr.treatment','contr.poly'))
 require(nlme)
-data(sorghum)
 
 ## *************************************************************************************
 ##            Section 1:  Polynomials for weeks and blocks contrasts

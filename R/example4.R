@@ -53,12 +53,11 @@
 #'
 #' @examples
 #' ## *************************************************************************************
-#' ##                            Preliminaries
+#' ##                          Options and required packages
 #' ## *************************************************************************************
 #'
 #' options(contrasts = c('contr.treatment','contr.poly'))
 #' require(nlme)
-#' data(sorghum)
 #'
 #' ## *************************************************************************************
 #' ##            Section 1:  Polynomials for weeks and blocks contrasts

@@ -1,0 +1,96 @@
+---
+title: "agriTutorial" 
+author: "Rodney Edmondson"
+date: "2018-01-15"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{agriTutorial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+## Introduction
+
+Designed experiments can be complex and difficult to interpret and the proper use of appropriate statistical methodology is essential for efficient and reliable analysis. Piepho and Edmondson (2018) discuss the basics of the statistical analysis of five designed experiments using real examples from agricultural field trials and this package provides example software for the analysis of the five example data sets discussed in that paper.
+
+## Examples
+
+**Example 1.** A split-split-plot experiment on rice yield (Gomez & Gomez 1984, p. 143) with three complete replicates of all factorial combinations of three management practices (minimum, optimum, intensive), five rates of nitrogen (N) fertilizer (0, 50, 80, 110, 140 kg/ha) and three varieties. The fertilizer treatments were applied to main plots, the management practices to split-plots and the varieties to split-split-plots.
+
+**Example 2.** A complete randomized blocks experiment on sugar beet yield (Petersen 1994, p. 125) with three complete replicates of five rates of N-fertiliser treatments (0, 35, 70, 105 and 140 kg N/ha). 
+
+**Example 3.** A split-plot greenhouse experiment on rice leaf nitrogen uptake (Gomez & Gomez, 1984, p. 401) with four complete replicates of all factorial combinations of four water-stress treatments (0, 10, 20 and 40 days) and four nitrogen rate treatments (0, 90, 180 and 270 kg/ha). The water stress treatments were applied to main plots and the nitrogen rates to sub-plots.
+
+**Example 4.** A randomised blocks experiment on sorghum leaf area (Milliken & Johnson 1992, p. 429) with five randomized complete blocks of four sorghum varieties. The leaf area index was measured repeatedly on each individual plot in each of five consecutive weeks starting two weeks after emergence.
+
+**Example 5.** A complete randomized blocks experiment on turnip yield (Mead 1988, p. 323) with five seed rates (0.5, 2, 8, 20, 32 lb/acre) and four row widths (4, 8, 16, 32 inches) giving 20 planting density combinations.
+
+## Navigation
+
+The main agriTutorial index page can be accessed by either the <nobr>help(agriTutorial)</nobr> or by the <nobr>?agriTutorial</nobr> command. From the main index page, html links navigate to each of the following five example pages:  
+
+1. **example1** : split-plot design with one quantitative and one qualitative treatment factor
+1. **example2** : block design with one qualitative treatment factor
+1. **example3** : response surface design with two quantitative treatment factors
+1. **example4** : repeated measures design with one quantitative treatment factor
+1. **example5** : block design with transformed quantitative treatment levels
+
+Each example page has a single html link which navigates back to the main index page thus allowing navigation to any other example page.
+
+## Data
+
+The data sets for the five examples are stored in data.frames in five data files called "rice", "beet", "greenrice", "sorghum" and "turnip" respectively. The data files become available automatically when the agriTutorial package is loaded and can be viewed, if desired, by typing the data file name.
+
+## Code
+
+Each example page provides a brief explanation of the statistical analysis of each example and provides some R code for the analysis, as discussed in Piepho and Edmondson (2018). The R code can be copied and pasted into the device console window and should automatically  reproduce the analysis given by Piepho and Edmondson.
+
+Most of the examples require contributed library packages and these should install automatically when agriTutorial is installed. However, the required library packages must be loaded by the library(package) command before they can be used by the example code.
+
+In addition to numerical analysis, the example code also generates a range of graphical analysis including plots of the fitted models and a range of diagnostic plots showing methods for testing model assumptions. Normally, graphical output is sent directly to a suitable graphics window and is displayed using the default graphics device. 
+
+If using RStudio, graphical output is displayed in the Plots window output pane but sometimes if the output pane is too small the following error message will occur: Error in plot.new() : figure margins too large. This is not a program error and can be resolved by increasing the size of the output pane, see:
+
+https://support.rstudio.com/hc/en-us/articles/200488548-Problem-with-Plots-or-Graphics-Device
+
+## Export
+
+Output can be diverted to any suitable output text file by using a sink file command, if required: see help(sink). Data table output can be exported directly to a text file by using the write.table function, if required: see help(write.table). Options for exporting data in spread sheet format are provided by the xlsx package (CRAN library).
+
+By default, all graphical output will appear in the device graphics or plot window but can be diverted to a suitable output device by using one of the following options
+
+* pdf("mygraph.pdf") 	pdf file
+* win.metafile("mygraph.wmf") 	windows metafile
+* png("mygraph.png") 	png file
+* jpeg("mygraph.jpg") 	jpeg file
+* bmp("mygraph.bmp") 	bmp file
+* postscript("mygraph.ps") 	postscript file 
+
+See: https://www.statmethods.net/interface/io.html
+
+## Comment
+
+The agridat package https://CRAN.R-project.org/package=agridat also contains data and analysis on the split-split-plot experiment on rice yield (Gomez & Gomez 1984, p. 143) as discussed in Piepho and Edmondson, (2018). See gomez.splitsplit {agridat}.
+
+## References
+
+Gomez, K.A., & Gomez, A.A. (1984). Statistical procedures for agricultural research, 2nd edn. New York: Wiley.
+
+Mead, R. (1988). The design of experiments. Statistical principles for practical application. Cambridge: Cambridge University Press.
+
+Milliken, G.A., & Johnson, D.E. (1992). Analysis of messy data. Volume I: Designed experiments. Boca Raton: CRC Press.
+
+Petersen, R.G. (1994). Agricultural field experiments. Design and analysis. New York: Marcel Dekker.
+
+Piepho, H. P. and Edmondson, R. N. (2018). A tutorial on the statistical analysis of factorial experiments with qualitative and quantitative treatment factor levels. *Journal of Agronomy and Crop Science*, 2018;1–27.
+
+Wright,K. (2017). agridat: Agricultural Datasets. R package version 1.13. https://CRAN.R-project.org/package=agridat
+
+
+

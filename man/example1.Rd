@@ -51,26 +51,60 @@ those effects (functional marginality) should be included in the model therefore
 are included in this model. The fitted model for the nitrogen effects fits the actual actual nitrogen levels used
 in the experiment therefore this model provides the required coefficients for the actual applied nitrogen levels.
 
-Finally, individual plots of the nitrogen response for each variety in each block averaged over all management effects are
-shown (Fig 1). These plots show the nitrogen response of each variety in each replicate block and
-show some evidence of anomalous behaviour by variety 1 in blocks 1 and 2 compared with block 3. In practice,
-this anomaly would need to be investigated by further discussion with the research workers.
+Section 3
+
+Section 3 provides checks on some of the assumptions underlying the blocks-by-treatments model.
+
+The first analysis in this section shows a
+complete partition of the blocks-by-treatments interaction effects into factorial mean square terms where
+all the terms that contain a replicate:variety interaction effect are estimates of the split-split-plot error variance.
+If the blocks-by-treatments assumptions are valid, all the estimates of the split-split-plot error variance
+are expected to have
+the same error mean square. However, the Replicate:variety effect has a mean square of 1.54 on 4 degrees
+of freedom whereas the Replicate:management:variety:nitrogen effect has a mean square of 0.26 on 32 degrees of freedom.
+The ratio of these mean squares is 5.92 with an F-probability of 0.00110 on 4 and 32 degrees of freedom, which
+means that the Replicate:variety interaction effect is significantly inflated relative to the
+Replicate:management:variety:nitrogen effect. This shows that the assumptions underlying the blocks-bytreatments
+analysis of the model are invalid with a high level of probability.
+
+The 4 degrees of freedom in the Replicate:variety interaction effect are the differences between the three varieties
+differenced between the three replicate blocks. Fig S1 shows graphical plots of
+variety effects in each replicate block averaged over management effects, and there is clear evidence that the effects of
+Variety 1 in blocks 1 and 2 were different from the effects of Variety 1 in block 3.
+
+The second analysis in Section 3 shows a complete partition of the blocks-by-treatments
+interaction effects into factorial mean square terms ignoring Variety 1. This
+analysis shows a reasonably good fit to the assumed additive block which
+supports the hypothesis that the non-additivity of the block-and-treatment effects in the
+full unrestricted analysis is mainly due to Variety 1.
+
+The final analysis in Section 3 shows an analysis of variance of the treatment effects ignoring Variety 1.
+In this analysis, the management:variety interaction effect becomes significant at the 0.00992 probability level
+compared with a non-significant management:variety interaction effect in the analysis of the full data set.
+
+Such anomalies are not uncommom in the analysis of real data sets and it is the task of
+the statistician to identify anomalies as and when they occcur. Factorial designs can be very powerful for practical
+research but, as demonstrated with this data set, the analysis of such designs is complex and anomalies
+can be easily missed.
+Unless an anomaly is due to an easily identified cause such as an incorrectly recorded data point, it is likely
+that the anomaly will need to be investigated by further discussion with the research workers.
+It is a mistake to suppose that data from a designed experiment can be analysed statistically in isolation from
+the research workers who conducted the experiment.
 
 \code{\link[agriTutorial]{agriTutorial}} : back to home page\cr
 }
 \examples{
 ## Copy and paste the following code into an R console or GUI to run the examples
-## Packages lmerTest, lsmeans and pbkrtest MUST be installed
+## Packages lmerTest, emmeans and pbkrtest MUST be installed
 
 ## *************************************************************************************
-##                            Preliminaries
+##                       Options and required packages
 ## *************************************************************************************
 
 options(contrasts = c('contr.treatment', 'contr.poly'))
 require(lmerTest)
-require(lsmeans)
+require(emmeans)
 require(pbkrtest)
-data(rice)
 
 ## *************************************************************************************
 ##            Section 1: Qualitative analysis of factorial treatment effects
@@ -87,15 +121,15 @@ rice.means = lmer(yield ~ Replicate + management + nitrogen * variety +
 anova(rice.means, ddf = "Kenward-Roger", type = 1)
 plot(rice.means, sub.caption = NA, ylab = "Residuals", xlab = "Fitted",
  main = "Full analysis with full nitrogen effects")
-lsmeans::lsmeans(rice.means, ~ nitrogen)
-lsmeans::lsmeans(rice.means, ~ variety)
-lsmeans::lsmeans(rice.means, ~ nitrogen * variety)
+emmeans::emmeans(rice.means, ~ nitrogen)
+emmeans::emmeans(rice.means, ~ variety)
+emmeans::emmeans(rice.means, ~ nitrogen * variety)
 
 ## REML contrasts and sed's for additive management and qualitative nitrogen effects
-n.v = lsmeans::lsmeans(rice.means, ~ nitrogen|variety)
-contrast(n.v, alpha = 0.05, method = "pairwise")
-v.n = lsmeans::lsmeans(rice.means, ~ variety|nitrogen)
-contrast(v.n, alpha = 0.05, method = "pairwise")
+n.v = emmeans::emmeans(rice.means, ~ nitrogen|variety)
+emmeans::contrast(n.v, alpha = 0.05, method = "pairwise")
+v.n = emmeans::emmeans(rice.means, ~ variety|nitrogen)
+emmeans::contrast(v.n, alpha = 0.05, method = "pairwise")
 
 ## Table 3 Mixed model effects for rice data with significance tests
 rice.lmer = lmer(yield ~ Replicate + nitrogen * management * variety + (1|Replicate:Main) +
@@ -121,8 +155,19 @@ anova(rice.fullN, ddf = "Kenward-Roger", type = 1)
 rice.quadN = lmer(yield ~ Replicate + management + variety * Linear_N + Quadratic_N +
  (1|Replicate:Main) + (1|Replicate:Main:Sub), data = rice)
 summary(rice.quadN, ddf = "Kenward-Roger")
+}
 
-## Fig 1 Nitrogen response per variety per plot showing anomalous behaviour of Variety 1
+## *************************************************************************************
+##                       Section 3: Model assumptions
+## *************************************************************************************
+
+## Full analysis of variance of block and treatment effects showing large mean square error
+## due to variety-by-replicates interaction effects
+rice.fullaov = aov(yield ~ Replicate*management * variety * nitrogen, rice)
+summary(rice.fullaov, ddf = "Kenward-Roger", type = 1)
+
+## Fig S1 Nitrogen response per variety per plot showing anomalous behaviour of Variety 1
+## in Blocks 1 and 2 compared with Block 3
 Rice = aggregate(rice$yield, by = list(rice$Replicate, rice$nitrogen, rice$variety),
  FUN = mean, na.rm = TRUE)
 colnames(Rice) = c("Reps", "Nlev", "Vars", "Yield")
@@ -137,7 +182,19 @@ for (j in 1:3) {
 	}
 }
 title(main = "Fig S1. Variety response to nitrogen for individual replicate blocks", outer = TRUE)
-}
+
+## Subset of data excluding variety 1
+riceV2V3=droplevels(rice[rice$variety != "V1",])
+
+## Restricted analysis of variance of block and treatment effects excluding variety 1
+## compare variety-by-replicates interaction effects of full and restricted analysis
+rice.fullaov = aov(yield ~ Replicate*management * variety * nitrogen, riceV2V3)
+summary(rice.fullaov, ddf = "Kenward-Roger", type = 1)
+
+## Restricted analysis assuming qualitative nitrogen effects excluding variety 1
+rice.aov1 = aov(yield ~ Replicate + management * variety * nitrogen +
+Error(Replicate/Main/Sub), riceV2V3)
+summary(rice.aov1, ddf = "Kenward-Roger", type = 1)
 
 }
 \references{
