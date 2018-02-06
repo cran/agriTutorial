@@ -1,4 +1,4 @@
-#' @title  Rice data for EXAMPLE 3
+#' @title  Rice data for Example 3
 #' @description
 #' (Gomez & Gomez, 1984, p. 401): Nitrogen uptake (g/pot) of rice was studied in a two-factor
 #' greenhouse experiment involving duration of water stress (W) and level of nitrogen application (N).

@@ -1,5 +1,5 @@
 #' @name example1
-#' @title  EXAMPLE 1: Split-plot design with one qualitative and one quantitative level factor
+#' @title  Example 1: Split-plot design with one qualitative and one quantitative level factor
 #' @description
 #' Gomez & Gomez (1984, p. 143) report a rice experiment with three management practices
 #' (minimum, optimum, intensive), five different amounts of nitrogen (N) fertilizer
@@ -21,7 +21,7 @@
 #' The second analysis (Table 2) uses a REML mixed model analysis to find treatment means and SE's for each marginal
 #' treatment classification averaged over all the other treatment factors, together with estimates of
 #' pairwise contrasts of treatment means and the SE's of the pairwise treatment comparisons. This analysis fits
-#' the full set of nitrogen-by-variety interaction effects assuming additive managment effects and the fit of the model
+#' the full set of nitrogen-by-variety interaction effects assuming additive management effects and the fit of the model
 #' is tested by a graphical plot of the model residuals.
 #' Residual plots provide an important check on model assumptions but many more options for model testing are
 #' available and further methods for diagnostic testing are examined in the subsequent examples.
@@ -62,7 +62,7 @@
 #' of freedom whereas the Replicate:management:variety:nitrogen effect has a mean square of 0.26 on 32 degrees of freedom.
 #' The ratio of these mean squares is 5.92 with an F-probability of 0.00110 on 4 and 32 degrees of freedom, which
 #' means that the Replicate:variety interaction effect is significantly inflated relative to the
-#' Replicate:management:variety:nitrogen effect. This shows that the assumptions underlying the blocks-bytreatments
+#' Replicate:management:variety:nitrogen effect. This shows that the assumptions underlying the blocks-by-treatments
 #' analysis of the model are invalid with a high level of probability.
 #'
 #' The 4 degrees of freedom in the Replicate:variety interaction effect are the differences between the three varieties
@@ -80,8 +80,8 @@
 #' In this analysis, the management:variety interaction effect becomes significant at the 0.00992 probability level
 #' compared with a non-significant management:variety interaction effect in the analysis of the full data set.
 #'
-#' Such anomalies are not uncommom in the analysis of real data sets and it is the task of
-#' the statistician to identify anomalies as and when they occcur. Factorial designs can be very powerful for practical
+#' Such anomalies are not uncommon in the analysis of real data sets and it is the task of
+#' the statistician to identify anomalies as and when they occur. Factorial designs can be very powerful for practical
 #' research but, as demonstrated with this data set, the analysis of such designs is complex and anomalies
 #' can be easily missed.
 #' Unless an anomaly is due to an easily identified cause such as an incorrectly recorded data point, it is likely
@@ -89,7 +89,7 @@
 #' It is a mistake to suppose that data from a designed experiment can be analysed statistically in isolation from
 #' the research workers who conducted the experiment.
 #'
-#' \code{\link[agriTutorial]{agriTutorial}} : back to home page\cr
+#' \code{\link[agriTutorial]{agriTutorial}}: return to home page if you want to select a different example \cr
 #'
 #' @references
 #' Gomez, K.A., & Gomez, A.A. (1984). Statistical procedures for agricultural
@@ -98,21 +98,28 @@
 #' Kenward, M.G., & Roger, J.H. (1997). Small sample inference for fixed effects from restricted maximum likelihood.
 #' Biometrics, 53, 983–997.
 #'
-#' Piepho, H. P. & Edmondson R. N. (accepted). A tutorial on the statistical analysis of factorial experiments with
-#' qualitative and quantitative treatment factor levels.Journal of Agronomy and Crop Science. Accepted
+#' Piepho, H. P, and Edmondson. R. N. (2018). A tutorial on the statistical analysis of factorial experiments with qualitative and quantitative
+#' treatment factor levels. Journal of Agronomy and Crop Science. DOI: 10.1111/jac.12267.
+#' \href{http://onlinelibrary.wiley.com/doi/10.1111/jac.12267/full}{Early View}
 #'
 #' @examples
-#' ## Copy and paste the following code into an R console or GUI to run the examples
-#' ## Packages lmerTest, emmeans and pbkrtest MUST be installed
+#'
+#' ## *************************************************************************************
+#' ##                       How to run the code
+#' ## *************************************************************************************
+#'
+#' ## Either type example("example1") to run ALL the examples succesively
+#' ## or copy and paste examples sucessively, as required
 #'
 #' ## *************************************************************************************
 #' ##                       Options and required packages
 #' ## *************************************************************************************
 #'
-#' options(contrasts = c('contr.treatment', 'contr.poly'))
+#' ## Packages lmerTest, emmeans and pbkrtest MUST be installed
 #' require(lmerTest)
 #' require(emmeans)
 #' require(pbkrtest)
+#' options(contrasts = c('contr.treatment', 'contr.poly'))
 #'
 #' ## *************************************************************************************
 #' ##            Section 1: Qualitative analysis of factorial treatment effects

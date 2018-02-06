@@ -3,7 +3,7 @@
 \docType{data}
 \name{turnip}
 \alias{turnip}
-\title{turnip data for EXAMPLE 5}
+\title{Turnip data for Example 5}
 \format{An object of class \code{data.frame} with 60 rows and 6 columns.}
 \usage{
 data(turnip)

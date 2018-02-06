@@ -3,7 +3,7 @@
 \docType{data}
 \name{rice}
 \alias{rice}
-\title{rice data for EXAMPLE 1}
+\title{Rice data for Example 1}
 \format{An object of class \code{data.frame} with 135 rows and 8 columns.}
 \usage{
 data(rice)

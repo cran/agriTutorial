@@ -1,4 +1,4 @@
-#' @title sorghum data for EXAMPLE 4
+#' @title Sorghum data for Example 4
 #' @description
 #' Milliken & Johnson (1992, p. 429) describe an experiment with four sorghum varieties, in which the leaf area
 #' index was assessed in five consecutive weeks starting two weeks after emergence. The experiment was laid out
@@ -8,4 +8,3 @@
 #' @usage data(sorghum)
 #' @keywords data
 "sorghum"
-

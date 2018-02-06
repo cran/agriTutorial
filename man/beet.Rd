@@ -3,7 +3,7 @@
 \docType{data}
 \name{beet}
 \alias{beet}
-\title{Beet data for EXAMPLE 2}
+\title{Beet data for Example 2}
 \format{An object of class \code{data.frame} with 15 rows and 3 columns.}
 \usage{
 data(beet)

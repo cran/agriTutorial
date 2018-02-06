@@ -1,4 +1,4 @@
-#' @title  rice data for EXAMPLE 1
+#' @title  Rice data for Example 1
 #' @description
 #' Gomez & Gomez (1984, p. 143) report a rice experiment with three management practices
 #' (minimum, optimum, intensive), five different amounts of nitrogen (N) fertilizer
@@ -11,4 +11,3 @@
 #' @usage data(rice)
 #' @keywords data
 "rice"
-

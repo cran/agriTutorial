@@ -1,4 +1,4 @@
-#' @title turnip data for EXAMPLE 5
+#' @title Turnip data for Example 5
 #' @description
 #' Mead (1988, p. 323) describes an experiment on spacing effects with turnips,
 #' which was laid out in three complete blocks. Five different seed rates

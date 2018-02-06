@@ -3,7 +3,7 @@
 \docType{data}
 \name{sorghum}
 \alias{sorghum}
-\title{sorghum data for EXAMPLE 4}
+\title{Sorghum data for Example 4}
 \format{An object of class \code{data.frame} with 100 rows and 7 columns.}
 \usage{
 data(sorghum)

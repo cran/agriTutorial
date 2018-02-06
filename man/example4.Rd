@@ -2,7 +2,7 @@
 % Please edit documentation in R/example4.R
 \name{example4}
 \alias{example4}
-\title{EXAMPLE 4: One qualitative treatment factor with repeated measurements over time.}
+\title{Example 4: One qualitative treatment factor with repeated measurements over time.}
 \description{
 Milliken & Johnson (1992, p. 429) describe an experiment with four sorghum varieties in which the leaf area
 index was assessed in five consecutive weeks starting two weeks after emergence. The experiment was laid out
@@ -26,7 +26,7 @@ The third stage fits a full regression model over weeks (Table A1) to test for p
 variety and week effects. The full regression model is then decomposed into individual polynomial contrasts over
 weeks (Table A2) to find the most parsimonious model adequate for the data. The analysis into single degree
 of freedom polynomial contrasts shows that the variety-by-weeks interaction is mainly due to the linear and
-quadratic interaction effects although there is some evidence of higher-degree polynomial intraction effects.
+quadratic interaction effects although there is some evidence of higher-degree polynomial interaction effects.
 
 The fourth stage estimates the fitted model coefficients assuming a quadratic regression model
 for variety-by-week interaction effects (Table 15).This model uses orthogonal polynomial contrasts to fit block
@@ -49,9 +49,17 @@ the gls() algorithm to fit the same set of raw polynomials for both the blocks a
 This formulation allows numerically stable orthogonal polynomials to be used for higher-degree blocks model
 effects while still allowing raw polynomials to be used for the treatments model.
 
-\code{\link[agriTutorial]{agriTutorial}} : back to home page\cr
+\code{\link[agriTutorial]{agriTutorial}}: return to home page if you want to select a different example \cr
 }
 \examples{
+
+## *************************************************************************************
+##                       How to run the code
+## *************************************************************************************
+
+## Either type example("example4") to run ALL the examples succesively
+## or copy and paste examples sucessively, as required
+
 ## *************************************************************************************
 ##                          Options and required packages
 ## *************************************************************************************
@@ -160,4 +168,8 @@ summary(quad_orthog_Wald)$tTable
 }
 \references{
 Milliken, G.A., & Johnson, D.E. (1992). Analysis of messy data. Volume I: Designed experiments. Boca Raton: CRC Press.
+
+Piepho, H. P, and Edmondson. R. N. (2018). A tutorial on the statistical analysis of factorial experiments with qualitative and quantitative
+treatment factor levels. Journal of Agronomy and Crop Science. DOI: 10.1111/jac.12267.
+\href{http://onlinelibrary.wiley.com/doi/10.1111/jac.12267/full}{Early View}
 }

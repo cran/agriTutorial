@@ -1,4 +1,4 @@
-#' @title  Beet data for EXAMPLE 2
+#' @title  Beet data for Example 2
 #' @description
 #' Petersen (1994, p. 125) describes an experiment conducted to assess the effects
 #' of five different quantities of N-fertiliser (0, 35, 70, 105 and 140 kg N/ha) on root dry

@@ -2,7 +2,7 @@
 % Please edit documentation in R/example3.R
 \name{example3}
 \alias{example3}
-\title{EXAMPLE 3: Polynomial regression model with two quantitative level treatment factors}
+\title{Example 3: Polynomial regression model with two quantitative level treatment factors}
 \description{
 (Gomez & Gomez, 1984, p. 401) report a two-factor nitrogen uptake greenhouse experiment on rice
 involving duration of water stress (W) and level of nitrogen application (N) with four complete replicates of each treatment.
@@ -39,12 +39,20 @@ rescaled water stress and rescaled nitrogen rate treatments. The fitted coeffici
 plot the fitted quadratic log uptake curves versus the nitrogen rate treatments and the
 water stress treatments, as shown in Fig 4.
 
-Note that in this analysis all the polynomial models are built by adding individual polynomial effects in acccordance with the requirements of
+Note that in this analysis all the polynomial models are built by adding individual polynomial effects in accordance with the requirements of
 functional marginality.
 
-\code{\link[agriTutorial]{agriTutorial}} : back to home page\cr
+\code{\link[agriTutorial]{agriTutorial}}: return to home page if you want to select a different example \cr
 }
 \examples{
+
+## *************************************************************************************
+##                       How to run the code
+## *************************************************************************************
+
+## Either type example("example3") to run ALL the examples succesively
+## or copy and paste examples sucessively, as required
+
 ## *************************************************************************************
 ##                  Options and required packages
 ## *************************************************************************************
@@ -173,4 +181,8 @@ panel = panel.plot)
 Faraway J (2002) Practical Regression and Anova using R. https://cran.r-project.org/doc/contrib/Faraway-PRA.pdf
 
 Gomez, K.A., & Gomez, A.A. (1984). Statistical procedures for agricultural research, 2nd edn. New York: Wiley.
+
+Piepho, H. P, and Edmondson. R. N. (2018). A tutorial on the statistical analysis of factorial experiments with qualitative and quantitative
+treatment factor levels. Journal of Agronomy and Crop Science. DOI: 10.1111/jac.12267.
+\href{http://onlinelibrary.wiley.com/doi/10.1111/jac.12267/full}{Early View}
 }

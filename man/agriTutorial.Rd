@@ -3,66 +3,73 @@
 \docType{package}
 \name{agriTutorial}
 \alias{agriTutorial}
-\alias{agritutorial}
 \alias{agriTutorial-package}
 \title{Tutorial Analysis of Agricultural Experiments}
 \description{
-The \code{agriTutorial} package provides example software for the analysis of
- five agricultural example data sets in the paper:
+The \code{agriTutorial} package provides R software for the analysis of
+ five agricultural example data sets as discussed in the paper:
  'A tutorial on the statistical analysis of factorial experiments with qualitative
-  and quantitative treatment factor levels' by Piepho and Edmondson (in press).
+ and quantitative treatment factor levels' by Piepho and Edmondson (2018). See:
+ \href{http://onlinelibrary.wiley.com/doi/10.1111/jac.12267/full}{Early View}
 }
 \details{
 Code\cr
- The example code produces statistical analyses for the five agricultural data sets
- in Piepho and Edmondson and also produces some additional graphical analysis.
- The data for each example is provided as a data frame which is loaded
- automatically whenever the package is loaded. The code for each analysis is provided
- as a set of examples which can be executed by pasting the example code into
- any suitable R console terminal window. Provided that all the required packages (including agriTutorial)
- have been loaded, the output should then reproduce the example analyses given by Piepho and Edmondson.
 
-All printed output should appear in the gui or terminal window but can be diverted to a suitable
-text file by using a sink file command, if required: see help(sink). Graphical output should appear
-in the gui graphics window but can be diverted to a suitable pdf file by using a pdf file command,
-if required: see help(pdf). Data and output can be exported directly to a text file by using the
-\code{write.table} function, if required: see help(write.table). Options for exporting data in spread
-sheet format are provided by the xlsx package (see CRAN library for further details).
+ The example code produces statistical analysis for the five agricultural data sets
+ in Piepho & Edmondson (2018) and also produces additional graphical analysis.
+ The data for each example is provided as a data frame which loads
+ automatically whenever the package is loaded and the code for each analysis is provided
+ as a set of examples.
 
-The example code demonstrates some basic modern methodology for the analysis of data from designed
-experiments but there are many other packages available and it is straightforward to
+Printed output defaults to the device terminal window but can be diverted to a suitable
+text file by using a sink file command: see \code{help(sink)}, if required. Similarly, graphical output defaults
+to the device graphics window but can be diverted to a suitable graphics device if required:
+see \code{vignette('agriTutorial')} for further details,
+
+The example code demonstrates some basic methodology for the analysis of data from designed
+experiments but there are other methods available in R and it is straightforward to
 extend the example code by adding functionality from other packages. One source of package information
-is the set of package 'views' available at: https://cran.rstudio.com/web/views/.
+is the set of 'task views' available at: \href{https://cran.r-project.org/}{Task Views}.
 
 Polynomials\cr
+
 The polynomials used in this tutorial are either raw polynomials or orthogonal polynomials.
-A raw polynomial is a numeric vector raised to
-the power of the required polynomial whereas an orthogonal polynomial is a linear combination
-of raw polynomials of degree equal to or less than the degree of the required polynomial.
-Raw polynomial coefficients are the actual required model coefficients whereas orthogonal
-polynomial coefficients are linear combinations of the required model coefficients.
-Raw polynomial coefficients have a direct interpretation
-but can be numerically unstable for higher-degree polynomials whereas orthogonal polynomial coefficients are
-numerically stable but can be difficult to interpret. Raw polynomials are the polynomials of choice
+
+A raw polynomial is a weighted sum of the powers and cross-products
+of a set of treatment or nuisance effect vectors.
+
+An orthogonal polynomial is a weighted sum of orthogonal combinations of the powers and cross-products
+of a set of treatment or nuisance effect vectors.
+
+Raw polynomials have a direct interpretation as a fitted polynomial model
+but can be numerically unstable whereas orthogonal polynomials are
+numerically stable but give coefficients which are linear combinations of the
+required polynomial model coefficients and are difficult to interpret.
+
+Raw polynomials are the polynomials of choice
 for most analyses but sometimes orthogonal polynomials can be useful when, for example, fitting
 higher-degree polynomials in a long series of repeated measures (see example 4).
 
 Functional marginality\cr
-Any polynomial expansion of an unknown function must include all polynomial terms up to and including the degree
-of the expansion. This is the property of functional marginality and applies to any response surface
-design including designs with polynomial interaction effects (Nelder, 2000). In this tutorial,
-all polynomial models and response surface designs will be assumed to conform with the requirements of
+
+Polynomial expansions are based on a Taylor series expansion and normally
+must include all polynomial terms up to and including the maximum degree of the expansion.
+This is the property of functional marginality and applies to any polynomial or response surface
+model including models with polynomial interaction effects (Nelder, 2000). In this tutorial,
+all polynomial and response surface models will be assumed to conform with the requirements of
 functional marginality.
 
 Packages\cr
+
 The example code depends on a number of R packages each of which must be installed on the user machine before
 the example code can be properly executed. The required packages are lmerTest, lsmeans, pbkrtest, lattice, nlme and
 ggplot2, all of which should install automatically. If, for any reason, packages need to be installed by hand,
-this can be done by using the install.packages("package name") command from an R interface.
+this can be done by using \code{install.packages("package name")}.
 
 NB. It is important to keep packages updated using the update.packages() command.
 
 Examples:
+
 \enumerate{
 \item \code{\link[agriTutorial]{example1}} : split-plot design
 with one quantitative and one qualitative treatment factor\cr
@@ -77,8 +84,11 @@ quantitative treatment levels\cr
 }
 }
 \references{
-Piepho, H. P, and Edmondson. R. N. (accepted). A tutorial on the statistical analysis of factorial experiments with qualitative and quantitative
-treatment factor levels.Journal of Agronomy and Crop Science.
+Piepho, H. P, and Edmondson. R. N. (2018). A tutorial on the statistical analysis of factorial experiments with qualitative and quantitative
+treatment factor levels. Journal of Agronomy and Crop Science. DOI: 10.1111/jac.12267.
+\href{http://onlinelibrary.wiley.com/doi/10.1111/jac.12267/full}{Early View}
+
+Taylor series. From Wikipedia, the free encyclopedia https://en.wikipedia.org/wiki/Taylor_series
 
 Nelder, J. A. (2000). Functional marginality and response-surface fitting. Journal of Applied Statistics, 26, 109-122.
 }

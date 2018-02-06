@@ -1,5 +1,5 @@
 #' @name example2
-#' @title  EXAMPLE 2: Lack-of-fit and marginality for a single quantitative treatment factor
+#' @title  Example 2: Lack-of-fit and marginality for a single quantitative treatment factor
 #' @description
 #' Petersen (1994, p. 125) describes an experiment conducted to assess the effects
 #' of five different quantities of N-fertiliser (0, 35, 70, 105 and 140 kg N/ha) on root dry
@@ -13,35 +13,42 @@
 #'
 #' The second stage fits a full polynomial analysis of variance based on polynomial contrasts which are
 #' fitted in sequence from the lowest to the highest. This is equivalent to the analysis shown in Tables 4 and 5
-#' of Piepho and Edmondson except that a complete partition into single degree of freedom polynomial contrasts is
+#' of Piepho and Edmondson (2018) except that a complete partition into single degree of freedom polynomial contrasts is
 #' shown here compared with the pooled 'lack of fit' term shown in Tables 4 and 5.
 #'
 #' The third stage fits a quadratic regression model with linear and quadratic terms only.
 #' This model provides the model coefficients, standard errors and the confidence intervals
-#' shown in Table 6 of Piepho and Edmondson. A set of diagnostic plots are fitted for
+#' shown in Table 6 of Piepho and Edmondson (2018). A set of diagnostic plots are fitted for
 #' the fitted quadratic regression model to check the validity of the model assumptions.
 #'
 #' Finally, a smoothed quadratic graph of the yield versus the N rate is plotted to show the
 #' goodness of fit of the quadratic regression model. This plot corresponds to plot Fig 3 in
-#' Piepho and Edmondson.
+#' Piepho and Edmondson (2018).
 #'
-#' \code{\link[agriTutorial]{agriTutorial}} : back to home page\cr
+#' \code{\link[agriTutorial]{agriTutorial}}: return to home page if you want to select a different example \cr
 #'
 #' @references
 #' Petersen, R.G. (1994). Agricultural field experiments. Design and analysis. New York: Marcel Dekker.
 #'
-#' Piepho, H. P. & Edmondson R. N. (accepted). A tutorial on the statistical analysis of factorial experiments
-#' with qualitative and quantitative treatment factor levels.Journal of Agronomy and Crop Science. Accepted.
+#' Piepho, H. P, and Edmondson. R. N. (2018). A tutorial on the statistical analysis of factorial experiments with qualitative and quantitative
+#' treatment factor levels. Journal of Agronomy and Crop Science. DOI: 10.1111/jac.12267.
+#' \href{http://onlinelibrary.wiley.com/doi/10.1111/jac.12267/full}{Early View}
 #'
 #' @examples
-#' ## Copy and paste the following code into a R console or GUI:
-#' ## ggplot2 MUST be installed
+#'
+#' ## *************************************************************************************
+#' ##                       How to run the code
+#' ## *************************************************************************************
+#'
+#' ## Either type example("example2") to run ALL the examples succesively
+#' ## or copy and paste examples sucessively, as required
 #'
 #' ## *************************************************************************************
 #' ##                         Options and required packages
 #' ## *************************************************************************************
 #'
 #' options(contrasts = c('contr.treatment', 'contr.poly'))
+#' ## ggplot2 MUST be installed
 #' require(ggplot2)
 #'
 #' ## *************************************************************************************
@@ -72,4 +79,3 @@
 #' @importFrom ggplot2 ggplot
 #'
 NULL
-
