@@ -32,7 +32,7 @@
 #' relatively small and it will be assumed here that a quadratic model is adequate for the data.
 #'
 #' The final stage fits regression coefficients for the quadratic response surface model on the
-#' rescaled water stress and rescaled nitrogen rate treatments. The fitted coefficients are then used to
+#' re-scaled water stress and re-scaled nitrogen rate treatments. The fitted coefficients are then used to
 #' plot the fitted quadratic log uptake curves versus the nitrogen rate treatments and the
 #' water stress treatments, as shown in Fig 4.
 #'
@@ -83,16 +83,17 @@
 #' greenrice = cbind(greenrice, PolW, PolN)
 #'
 #' ## residual plot of untransformed N uptake data
-#' greenrice.uptake = lmer(uptake ~ Replicate + factor(N) * factor(W) + (1|Replicate:Main),
-#'  data = greenrice)
+#' greenrice.uptake = lmer(uptake ~ Replicate + Nitrogen * Water +
+#'  (1|Replicate:Main), data = greenrice)
 #' plot(greenrice.uptake, main = "Pearson residual plot for untransformed N uptake",
 #'  ylab = "Residuals N uptake")
 #'
 #' ## residual plot of log transformed N uptake data
-#' greenrice.loguptake = lmer(loguptake ~ Replicate + factor(N) * factor(W) +
+#' greenrice.loguptake = lmer(loguptake ~ Replicate + Nitrogen * Water +
 #'  (1|Replicate:Main), data = greenrice)
 #' plot(greenrice.loguptake, main = "Pearson residual plot for log transformed N uptake",
 #'  ylab = "Residuals log N uptake")
+#'
 #' \donttest{
 #' ## Table 9: first-order model of log uptake with Wald tests
 #' greenrice.lmer1 = lmer(loguptake ~ Linear_N + Linear_W + Nitrogen * Water +
@@ -145,7 +146,6 @@
 #'  strip = strip.custom(strip.names = TRUE,
 #'  factor.levels = c("0", "10", "20", "40")),
 #' panel = panel.plot)
-#'
 #'
 #'
 #' ## Fig 4a backtransformed quadratic loguptake curve versus water stress treatments

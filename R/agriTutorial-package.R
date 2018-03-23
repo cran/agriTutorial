@@ -61,7 +61,7 @@
 #' Packages\cr
 #'
 #' The example code depends on a number of R packages each of which must be installed on the user machine before
-#' the example code can be properly executed. The required packages are lmerTest, lsmeans, pbkrtest, lattice, nlme and
+#' the example code can be properly executed. The required packages are lmerTest, emmeans, pbkrtest, lattice, nlme and
 #' ggplot2, all of which should install automatically. If, for any reason, packages need to be installed by hand,
 #' this can be done by using \code{install.packages("package name")}.
 #'
