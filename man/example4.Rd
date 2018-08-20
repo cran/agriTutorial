@@ -5,16 +5,16 @@
 \title{Example 4: One qualitative treatment factor with repeated measurements over time.}
 \description{
 Milliken & Johnson (1992, p. 429) discuss data which they describe as repeated leaf index measurements
-on sorghum. Their data comprises five replicate blocks of four sorghum varieties and they assume equally spaced
+on sorghum. Their data set comprises five replicate blocks of four sorghum varieties and they assume equally spaced
 repeated measurements on each plot in each block on five consecutive occasions starting two weeks after emergence.
-No further information is given but it appears that the data is artificial rather than real.
+No further information is given but it appears that the data is simulated or made-up rather than real.
 Although real data is more authentic, it can sometimes be useful to discuss the analysis of an example data set
-from the literature, even when the data is artificial. Milliken & Johnson discuss a multivariate analysis
-of variance (MANOVA) for this data but MANOVA take no account of the ordered relationship between repeated
-observations or the likely correlation structure of the data and here we discuss a generalized
-least squares (GLS) method that is specifically intended to account for the underlying structure
-of repeated measures data. The interested reader can, if desired, compare the GLS method of analysis with the MANOVA
-analysis dicussed by Milliken & Johnson (1992) in Chapter 13 of their book.
+from the literature, even when the data is simulated. Milliken & Johnson discuss multivariate analysis
+of variance of the data but this method take no account of the ordered relationship between repeated
+observations or the likely correlation structure of the data and we will discuss alternative correlation models
+that are specifically intended to account for the underlying structure of repeated measures data. The interested
+reader can, if desired, refer to Milliken & Johnson (1992) Chapter 31 for comparison of the
+different approaches.
 }
 \details{
 \strong{Section 1} calculates polynomials for weeks and blocks using the \code{poly()} function.
@@ -67,19 +67,21 @@ the denominator d.f. and the estimated variance-covariance matrix of the estimat
 algorithms. The range, nugget and correlation coefficient are extracted and displayed and a
 graphical plot of the studentized residuals from the quadratic regression model is also shown.
 
-\strong{Section 5} fits a quadratic regression model for the variety-by-week interaction effects assuming
-a full degree-4 model for both the weeks regression model and for the blocks-by-weeks interaction model.
+\strong{Section 5} fits a quadratic regression model for variety-by-week interaction effects assuming
+a full degree-4 polynomial model for weeks and blocks-by-weeks effects.
 The quadratic regression model in Section 4 corresponds to the regression model used for Tables 14 and 15 of Piepho and Edmondson (2018)
 but the range = 3397131013 and nugget = 0.4605535 of this model are very different from the range = 10.35774 and nugget = 0.1720444 of the
-full factorial model. For robust smoothed prediction, the treatments model must be as parsimonious as possible and a degree-2 regression model
-for the variety-by-weeks effects seems reasonable, even though there is some evidence (Table 14 and Table A2) of significant
-higher-degree variety-by-weeks interaction effects. However, as shown in the analysis in Section 4, there is quite strong
-evidence of degree-3 and degree-4 polynomial weeks effects therefore the assumption of a degree-2 regression model for weeks is problematic.
-In this section, we fit a more general model that assumes a quadratic regression model for weeks-by-varieties effects and a full degree-4
-regression model for weeks and weeks-by-blocks effects. With this model, the values of the auto-correlation parameters are:
-range = 42.75763, nugget = 0.3586337 and correlation = 0.6265403 which are much closer to the autocorrelation parameters from the full
-factorial model than are those from Section 4. As this model fits a full degree-4 polynomial model both for weeks and for block-by-weeks effects,
-it is not necessary to use polynomial blocks contrasts and instead we fit the replcate block effects by using the \code{Replicate} blocks factor.
+full factorial model. As there is  evidence from Table A2 that the degree-3 and degree-4 polynomial
+weeks effects are non-negligible, the quadratic model for weeks effects in Section 4 may be inadequate for the data and the model
+may be underfitted. In this section, the assumption that the degree-3 and degree-4 polynomial weeks effects are zero is relaxed and
+a full degree-4 model for weeks and block-by-weeks interaction effects is fitted. The fitted model for treatment effects needs to be
+ as parsimonious as possible to ensure that estimates
+of treatment effects are robust against model assumptions and a degree-2 regression model for variety-by-weeks effects
+appears to be the most appropriate treatment model for this data. With this model, the values of the auto-correlation parameters
+ are: range = 42.75763, nugget = 0.3586337 and
+correlation = 0.6265403 which are much closer to the autocorrelation parameters from the full factorial model than are those from
+Section 4. As the model fits the full polynomial weeks model, it is not necessary to use polynomial blocks contrasts which gives a substantial
+simplification in coding.
 
 \strong{Comment} The model fitted in Section 5 appears to be the best model available based on the generalized least squares method but
  it is clear from the graphical plots of studentized residuals that the fitted data contains outliers that are not

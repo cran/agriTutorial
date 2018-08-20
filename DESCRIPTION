@@ -1,9 +1,13 @@
 Package: agriTutorial
 Type: Package
 Title: Tutorial Analysis of Some Agricultural Experiments
-Version: 0.1.3
-Date: 2018-03-08
-Author: R. N. Edmondson and H.P. Piepho
+Version: 0.1.4
+Date: 2018-08-19
+Authors@R: c(
+              person(c("Rodney Edmondson"),  email = "rodney.edmondson@gmail.com", role = c("aut", "cre"))
+            , person(c("Hans-Peter",  "Piepho"),  email = "piepho@uni-hohenheim.de", role = c("aut", "ctb"))
+            , person(c("Muhammad",  "Yaseen"),  email = "myaseen208@gmail.com ", role = c("aut", "ctb"))
+            )
 Maintainer: Rodney Edmondson <rodney.edmondson@gmail.com>
 Depends: R (>= 3.1.0)
 Description: Example software for the analysis of data from designed 
@@ -19,10 +23,13 @@ License: GPL (>= 2)
 Imports: lmerTest, emmeans, pbkrtest, lattice, nlme, ggplot2
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.0.1
-Suggests: knitr, rmarkdown
-VignetteBuilder: knitr
+RoxygenNote: 6.1.0
+Suggests: R.rsp
+VignetteBuilder: R.rsp
 NeedsCompilation: no
-Packaged: 2018-03-23 10:13:56 UTC; rne
+Packaged: 2018-08-20 18:19:22 UTC; rne
+Author: Rodney Edmondson [aut, cre],
+  Hans-Peter Piepho [aut, ctb],
+  Muhammad Yaseen [aut, ctb]
 Repository: CRAN
-Date/Publication: 2018-03-23 10:36:30 UTC
+Date/Publication: 2018-08-20 18:40:02 UTC
