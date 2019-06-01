@@ -10,7 +10,7 @@ The \code{agriTutorial} package provides R software for the analysis of
  five agricultural example data sets as discussed in the paper:
  'A tutorial on the statistical analysis of factorial experiments with qualitative
  and quantitative treatment factor levels' by Piepho and Edmondson (2018). See:
- \href{http://onlinelibrary.wiley.com/doi/10.1111/jac.12267/full}{Early View}
+ \href{http://dx.doi.org/10.1111/jac.12267}{View}
 }
 \details{
 Code\cr
@@ -86,7 +86,7 @@ quantitative treatment levels\cr
 \references{
 Piepho, H. P, and Edmondson. R. N. (2018). A tutorial on the statistical analysis of factorial experiments with qualitative and quantitative
 treatment factor levels. Journal of Agronomy and Crop Science. DOI: 10.1111/jac.12267.
-\href{http://onlinelibrary.wiley.com/doi/10.1111/jac.12267/full}{Early View}
+\href{http://dx.doi.org/10.1111/jac.12267}{View}
 
 Taylor series. From Wikipedia, the free encyclopedia https://en.wikipedia.org/wiki/Taylor_series
 

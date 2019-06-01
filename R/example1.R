@@ -100,7 +100,7 @@
 #'
 #' Piepho, H. P, and Edmondson. R. N. (2018). A tutorial on the statistical analysis of factorial experiments with qualitative and quantitative
 #' treatment factor levels. Journal of Agronomy and Crop Science. DOI: 10.1111/jac.12267.
-#' \href{http://onlinelibrary.wiley.com/doi/10.1111/jac.12267/full}{Early View}
+#' \href{http://dx.doi.org/10.1111/jac.12267}{View}
 #'
 #' @examples
 #'
